@@ -35,6 +35,15 @@ public class Vuelo implements Serializable {
 
 	public Vuelo() {
 	}
+	
+	public Vuelo(int id, String company, Timestamp fecha, int plazas, BigDecimal precio) {
+		super();
+		this.id = id;
+		this.company = company;
+		this.fecha = fecha;
+		this.plazas = plazas;
+		this.precio = precio;
+	}
 
 	public int getId() {
 		return this.id;
