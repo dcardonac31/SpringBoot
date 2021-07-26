@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.davidcardona.model.Reserva;
 import com.davidcardona.service.ReservasService;
 
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 @RestController
 public class ReservasController {
 	@Autowired

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.davidcardona.models.Hotel;
 import com.davidcardona.service.ServiceHoteles;
 
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 @RestController
 public class HotelesController {
 	

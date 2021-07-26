@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.davidcardona.models.Vuelo;
 import com.davidcardona.service.VuelosService;
 
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 @RestController
 public class VuelosController {
 	

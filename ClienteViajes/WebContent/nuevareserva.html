@@ -27,7 +27,7 @@
 		<label>Vuelo</label>
 		<select  ng-model="vuelo" ng-init="cargarVuelos()" class="form-control" style="width:80%">
 		
-			<option ng-repeat="v in vuelos" value="{{v.idvuelo}}">{{v.company}}</option>
+			<option ng-repeat="v in vuelos" value="{{v.id}}">{{v.company}}</option>
 		
 		</select>
 		</div>
@@ -35,7 +35,7 @@
 		<label>Hotel</label>
 		<select  ng-model="hotel" ng-init="cargarHoteles()" class="form-control" style="width:80%">
 		
-			<option ng-repeat="h in hoteles" value="{{h.idHotel}}">{{h.nombre}}</option>
+			<option ng-repeat="h in hoteles" value="{{h.id}}">{{h.nombre}}</option>
 		
 		</select>
 		</div>
@@ -73,35 +73,36 @@
 		app.controller("comunicacionController",function($scope,$http){
 			$scope.vuelos=[];
 			$scope.hoteles=[];		
-			$scope.idHotel;
-			$scope.idVuelo;
+			$scope.hotel;
+			$scope.vuelo;
 			$scope.nombre;
 			$scope.dni;		
 			$scope.mostrarTabla=true;			
 			$scope.cargarHoteles=function(){
 				
-				let url = "http://localhost:8000/hoteles";
-				//let url = "http://localhost:7000/shoteles/hoteles";
+				//let url = "http://localhost:8000/hoteles";
+				let url = "http://localhost:7000/shoteles/hoteles";
 				$http.get(url).then(function(res){
 					$scope.hoteles=res.data;
-								
+					console.log($scope.hoteles)			
 				});
 			}
 			$scope.cargarVuelos=function(){				
-				let url = "http://localhost:9000/vuelos/1";	
-				//let url = "http://localhost:7000/svuelos/vuelos/1";	
+				//let url = "http://localhost:9000/vuelos/1";	
+				let url = "http://localhost:7000/svuelos/vuelos/1";	
 				$http.get(url).then(function(res){
 					$scope.vuelos=res.data;								
 				});
 			}
 			$scope.reservar=function(){
-				let url="http://localhost:10000/reserva/1";
-				//let url="http://localhost:7000/sreservas/reserva/1";
+				//let url="http://localhost:10000/reserva/1";
+				let url="http://localhost:7000/sreservas/reserva/1";
 				let ob=new Object();
 				ob.nombre=$scope.nombre;
 				ob.dni=$scope.dni;
-				ob.hotel=$scope.idHotel;
-				ob.vuelo=$scope.idVuelo;
+				ob.idHotel=$scope.hotel;
+				ob.idVuelo=$scope.vuelo;
+				console.log(ob)
 				$http.post(url,ob);
 			
 			};
